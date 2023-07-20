@@ -72,13 +72,17 @@ header {
 
 #navbar a {
     font-size: 14px;
-    color: #333333;
+    color: #fff;
 }
 
 #navbar a:hover {
     font-size: 15px;
     color: #757575;    
     font-weight: bold;
+}
+
+#navbar-brand a {
+    padding-left: 10px;
 }
 
 /* Search Container */

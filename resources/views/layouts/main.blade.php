@@ -29,7 +29,7 @@
                     </a>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="/" class="nav-link"><ion-icon name="home-outline"></ion-icon> Contacts</a>
+                            <a href="/" class="nav-link"><ion-icon name="home-outline"></ion-icon> Home</a>
                         </li>
                         <li class="nav-item">
                             <a href="/contacts/create" class="nav-link">New Contacts</a>
@@ -79,7 +79,7 @@
                 <dic class="row">
                 <div class="col-md-6">
                     GitHub: 
-                <a href="https://github.com/albertomaffeii/Api-Laravel-10" target="_blank" >github.com/albertomaffeii</a>
+                <a href="https://github.com/albertomaffeii/Contact-System" target="_blank" >github.com/albertomaffeii/Contact-System</a>
 
                 </div>
                 <div class="col-md-6">

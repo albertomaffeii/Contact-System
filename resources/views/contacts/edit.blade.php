@@ -1,56 +1,56 @@
 @extends('layouts.main')
 
-@section('title', 'Editing: ' . $event->title)
+@section('title', 'Editing: ' . $contact->title)
 
 @section('content')
 
-<div id="event-create-container" class="col-md-6 offset-md-3">
-    <h1>Editing your event</h1>
-    <form action="/events/update/{{ $event->id }}" method="POST" enctype="multipart/form-data">
+<div id="contact-create-container" class="col-md-6 offset-md-3">
+    <h1>Editing your contact</h1>
+    <form action="/contacts/update/{{ $contact->id }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="col-md-12 row">
             <div class="form-group col-md-4">
-                <label for="actual-image">Actual Event image:</label>
-                <input type="hidden" id="actual" name="actual" value="{{ $event->image }}">
-                <img src="/img/events/{{ $event->image }}" alt="{{ $event->title }}" class="img-preview">
+                <label for="actual-image">Actual contact image:</label>
+                <input type="hidden" id="actual" name="actual" value="{{ $contact->image }}">
+                <img src="/img/contacts/{{ $contact->image }}" alt="{{ $contact->title }}" class="img-preview">
 
             </div>
             <div class="form-group col-md-8">
-                <label for="image">New event image:</label>
-                <p class="newimagetext">To change the event image, click the button below and select a new image.<br></p>
+                <label for="image">New contact image:</label>
+                <p class="newimagetext">To change the contact image, click the button below and select a new image.<br></p>
                 <input type="file" class="form-control-file" id="image" name="image">
             </div>
         </div>
         <div class="form-group">
-            <label for="title">Event title:</label>
-            <input type="text" class="form-control" id="title" name="title" value="{{ $event->title }}" placeholder="Event's name"  required>
+            <label for="title">contact title:</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ $contact->title }}" placeholder="contact's name"  required>
         </div>
         <div class="form-group row col-md-12">
             <div class="form-group col-md-6">
-                <label for="date">Event date:</label>
-                <input type="date" class="form-control" id="date" name="date" value="{{ $event->date }}" required>
+                <label for="date">contact date:</label>
+                <input type="date" class="form-control" id="date" name="date" value="{{ $contact->date }}" required>
             </div>
             <div class="form-group col-md-6">
-                <label for="time">Event time:</label>
-                <input type="time" class="form-control" id="time" name="time" value="{{ $event->time }}" required>
+                <label for="time">contact time:</label>
+                <input type="time" class="form-control" id="time" name="time" value="{{ $contact->time }}" required>
             </div>
         </div>
         <div class="form-group">
             <label for="city">City:</label>
-            <input type="text" id="city" name="city" class="form-control"value="{{ $event->city }}" placeholder="Event's place"  required>
+            <input type="text" id="city" name="city" class="form-control"value="{{ $contact->city }}" placeholder="contact's place"  required>
         </div>
         <div class="form-group">
-            <label for="private">Is this a private event?</label>
+            <label for="private">Is this a private contact?</label>
             <select name="private" id="private" class="form-control" required>
                 <option>Select</option>
-                <option value="0" {{ $event->private == 0 ? "selected='selected'" : ""}}>No</option>
-                <option value="1" {{ $event->private == 1 ? "selected='selected'" : ""}}>Yes</option>
+                <option value="0" {{ $contact->private == 0 ? "selected='selected'" : ""}}>No</option>
+                <option value="1" {{ $contact->private == 1 ? "selected='selected'" : ""}}>Yes</option>
             </select>
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
-            <textarea name="description" cols="30" rows="10" id="description" class="form-control" placeholder="What will happen at the event.">{{ $event->description }}</textarea>
+            <textarea name="description" cols="30" rows="10" id="description" class="form-control" placeholder="What will happen at the contact.">{{ $contact->description }}</textarea>
         </div>
         <div class="form-group">
             <label for="items">Add infrastructure items</label>
@@ -100,7 +100,7 @@
             </div>           
         </div>
         <div class="sendBtnBox">
-            <input type="submit" class="btn btn-primary" value="Update Event">
+            <input type="submit" class="btn btn-primary" value="Update contact">
         </div>
     </form>
 </div>
