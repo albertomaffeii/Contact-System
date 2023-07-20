@@ -31,10 +31,6 @@ class ContactController extends Controller
         return view('contacts.create');
     }
 
-    public function contact() {        
-        return view('contact');
-    }
-
     public function store(Request $request) {
 
         $contact = new Contact;
@@ -75,16 +71,17 @@ class ContactController extends Controller
         return view('contacts.show', ['contact' => $contact, 'contactOwner' => $contactOwner, 'hasUserJoined' => $hasUserJoined]);    
     }
 
+   
+
     public function dashboard() {
         $user = auth()->user();
         $contacts = $user->contacts;
-
-        $contactsAsParticipant =  $user->contactsAsParticipant;
-
+        
         return view('contacts.dashboard', 
-            ['contacts' => $contacts, 'contactsAsParticipant' => $contactsAsParticipant]
+            ['contacts' => $contacts]
         );
     }
+    
 
     public function destroy($id){
 
