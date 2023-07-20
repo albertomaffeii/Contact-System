@@ -6,7 +6,7 @@
 
 <div id="contacts-container" class="col md 12">
     <h1>Contact Management<br>Web application</h1>
-<h3>Develop a CRUD Laravel web application to manage contacts</h3>
+<h3>Web application to manager contacts</h3>
 
 </div>
 

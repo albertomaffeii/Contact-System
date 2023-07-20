@@ -17,10 +17,14 @@ use App\Http\Controllers\ContactController;
 
 Route::get('/', [ContactController::class, 'index']);
 Route::get('/contacts/create', [ContactController::class, 'create'])->middleware('auth');
-Route::get('/contacts/{id}', [ContactController::class, 'show']);
+Route::get('/contacts/show/{id}', [ContactController::class, 'show']);
 Route::post('/contacts', [ContactController::class, 'store']);
 Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->middleware('auth');
 Route::get('/contacts/edit/{id}', [ContactController::class, 'edit'])->middleware('auth');
 Route::put('/contacts/update/{id}', [ContactController::class, 'update'])->middleware('auth');
 
 Route::get('/dashboard', [ContactController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('logout');

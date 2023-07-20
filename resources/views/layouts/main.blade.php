@@ -44,7 +44,6 @@
                                     <a href="/logout" class="nav-link" onclick="contact.prcontactDefault();this.closest('form').submit();">Log Out</a>
                                 </form>
                             </li>
-
                         @endauth
                         @guest
                             <li class="nav-item">

@@ -11,20 +11,8 @@ use App\Models\User;
 class ContactController extends Controller
 {
     public function index() {
-
-        $search = request('search');
-
-        if($search) {
-
-            $contacts = Contact::where([
-                ['title','like','%'.$search.'%']
-            ])->get();
-
-        } else {
-            $contacts = Contact::all();
-        }
-        
-        return view('welcome', ['contacts' => $contacts, 'search' => $search]);
+      
+        return view('welcome');
     }
  
     public function create() {        
@@ -55,15 +43,6 @@ class ContactController extends Controller
         $user = auth()->user();
         $hasUserJoined = false;
 
-        if($user) {
-            $userContacts = $user->contactsAsParticipant->toArray();
-
-            foreach ($userContacts as $userContact) {
-                if($userContact['id'] == $id) {
-                    $hasUserJoined = true;
-                }
-            }
-        }
 
         //Contact Owner
         $contactOwner = User::where('id', '=', $contact->user_id)->first()->toArray();
@@ -76,10 +55,20 @@ class ContactController extends Controller
     public function dashboard() {
         $user = auth()->user();
         $contacts = $user->contacts;
+
+        $search = request('search');
+
+        if($search) {
+
+            $contacts = Contact::where([
+                ['name','like','%'.$search.'%']
+            ])->get();
+
+        } else {
+            $contacts = Contact::all();
+        }
         
-        return view('contacts.dashboard', 
-            ['contacts' => $contacts]
-        );
+        return view('contacts.dashboard', ['contacts' => $contacts, 'search' => $search]);
     }
     
 
